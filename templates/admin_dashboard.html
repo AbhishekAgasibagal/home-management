@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NGO Admin Portal</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="admin-body">
+
+    <div class="admin-wrapper">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>NGO Admin</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <p class="active">🏠 Dashboard Home</p>
+                <p>📄 Manage Home Page</p>
+                <p>👥 About Us</p>
+                <p>📁 Projects</p>
+                <p>📞 Contact Info</p>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-navbar">
+                <div class="breadcrumb">Home / <strong>Dashboard</strong></div>
+                <div class="user-profile">
+                    <span>Admin User</span> | <a href="/logout" style="color:red; text-decoration:none;">Logout</a>
+                </div>
+            </header>
+
+            <div class="content-body">
+                <div class="admin-card">
+                    <h3>Hero Banner Management</h3>
+                    <div class="preview-container">
+                        <img src="{{ url_for('static', filename='static/images/banner.jpg') }}" alt="Current Banner">
+                    </div>
+                    <button class="btn btn-primary" style="margin-top:15px;">Change Banner Image</button>
+                </div>
+
+                <div class="admin-card">
+                    <h3>Edit Vision & Mission</h3>
+                    <form action="/update" method="POST">
+                        <div class="form-group">
+                            <label>Mission Statement</label>
+                            <textarea name="mission" rows="4">{{ data.mission }}</textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Vision Statement</label>
+                            <textarea name="vision" rows="4">{{ data.vision }}</textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-success">Update Website Content</button>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </div>
+
+</body>
+</html>

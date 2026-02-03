@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <div class="logo">NGO logo</div>
+        <nav>
+            <ul class="nav-links">
+                <li>Home</li><li>About Us</li><li>Our Work</li><li>Projects</li><li>Media</li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="banner">
+        <img src="{{ url_for('static', filename='images/banner.jpg') }}" alt="African NGO Theme">
+    </div>
+
+    <main class="container">
+        <h1>Vision and Mission</h1>
+        <div class="grid">
+            <div class="card">
+                <h3>Our Mission</h3>
+                <p>{{ data.mission }}</p>
+            </div>
+            <div class="card">
+                <h3>Our Vision</h3>
+                <p>{{ data.vision }}</p>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
