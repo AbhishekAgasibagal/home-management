@@ -3,7 +3,7 @@ from flask import Flask, render_template, request, redirect, url_for, session
 app = Flask(__name__)
 app.secret_key = "ngo_secret_key"
 
-# Your website data
+
 site_data = {
     "mission": "Our Mission text here...",
     "vision": "Our Vision text here...",
@@ -16,11 +16,10 @@ def index():
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
-        # Matching these exactly to the form 'name' attributes
+      
         username = request.form.get('user')
         password = request.form.get('pass')
-        
-        # simplified check for testing
+   
         if username == 'admin' and password == '123':
             session['logged_in'] = True
             return redirect(url_for('admin_dashboard'))
@@ -43,4 +42,5 @@ def update():
     return redirect(url_for('admin_dashboard'))
 
 if __name__ == '__main__':
+
     app.run(debug=True)
